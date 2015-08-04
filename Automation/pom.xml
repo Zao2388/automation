@@ -7,17 +7,58 @@
   <version>1.0-SNAPSHOT</version>
   <name>Automation</name>
   <url>http://maven.apache.org</url>
-  <dependencies>
-      <dependency>
-          <groupId>org.seleniumhq.selenium</groupId>
-          <artifactId>selenium-java</artifactId>
-          <version>2.45.0</version>
-      </dependency>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <testng.version>6.3</testng.version>
+        <selenium.version>2.43.0</selenium.version>
+        <surefire.version>2.11</surefire.version>
+        <maven.compiler.version>2.3.2</maven.compiler.version>
+        <suiteXmlFile>testng.xml</suiteXmlFile>
+    </properties>
 
+    <dependencies>
       <dependency>
           <groupId>org.testng</groupId>
           <artifactId>testng</artifactId>
-          <version>6.7</version>
+          <version>${testng.version}</version>
       </dependency>
-  </dependencies>
+      <dependency>
+          <groupId>org.seleniumhq.selenium</groupId>
+          <artifactId>selenium-java</artifactId>
+          <version>${selenium.version}</version>
+      </dependency>
+    </dependencies>
+       <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven.compiler.version}</version>
+                <configuration>
+                    <source>1.5</source>
+                    <target>1.5</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${surefire.version}</version>
+                <configuration>
+                    <!-- This is to skip tests during normal maven execution
+                    (e.g. mvn package) and run them in integration-test -->
+                    <skip>true</skip>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>integration-test</phase>
+                        <goals>
+                            <goal>test</goal>
+                        </goals>
+                        <configuration>
+                            <skip>false</skip>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 </project>
