@@ -6,7 +6,7 @@
         <classes>
             <class name="ToolsQA.App">
                 <methods>
-                    <include name="validateMainPage"/>
+                    <include name="testSearch"/>
                 </methods>
             </class>
         </classes>
