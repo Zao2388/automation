@@ -1,5 +1,6 @@
 package framework.selenium;
 
+import framework.constants.Browser;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -20,13 +21,11 @@ public class SeleniumBase {
     @Parameters({"browser"})
     public void setUp(String browser){
         switch (browser){
-            //Cambiar la clase de constanes
-            //case Browser.FIREFOX :
-            case "Firefox" :
+            case Browser.FIREFOX :
                 //Create instance
                 this.driver= new FirefoxDriver();
                 break;
-            case "Chrome" :
+            case Browser.CHROME :
                 this.driver= new ChromeDriver();
                 break;
 
