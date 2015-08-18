@@ -4,7 +4,8 @@
 
     <test name="Main Tests" verbose="2">
         <parameter name="browser" value="Firefox"/>
-        <parameter name="url" value="http://www.zaosoft.com/"/>
+        <parameter name="url" value="https://searchbertha-qa1.appspot.com/"/>
+        <parameter name="zip" value="76201"/>
 
 
         <groups>

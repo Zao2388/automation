@@ -14,6 +14,9 @@ public class HomePage {
     @FindBy(id="Zipcode")
     private WebElement zipField;
 
+    @FindBy(id="search-form-button")
+    private WebElement searchButton;
+
     public HomePage(WebDriver driver){
         this.driver=driver;
     }
@@ -24,5 +27,9 @@ public class HomePage {
 
     public void insertZipCode(String zip){
         this.zipField.sendKeys(zip);
+    }
+    public MainPage clickSearchButton(){
+        this.searchButton.click();
+        return new MainPage(this.driver);
     }
 }
