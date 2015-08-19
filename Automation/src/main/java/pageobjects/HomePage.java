@@ -1,5 +1,6 @@
 package pageobjects;
 
+import framework.selenium.BotStyle;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -9,7 +10,7 @@ import org.openqa.selenium.support.FindBy;
  */
 public class HomePage {
     private final String PAGE_TITTLE="Aunt Bertha | Connecting People and Programs";
-    private WebDriver driver =null;
+    private BotStyle driver =null;
 
     @FindBy(id="Zipcode")
     private WebElement zipField;
@@ -17,17 +18,30 @@ public class HomePage {
     @FindBy(id="search-form-button")
     private WebElement searchButton;
 
-    public HomePage(WebDriver driver){
+    /**
+     *
+     * @param driver
+     */
+    public HomePage(BotStyle driver){
         this.driver=driver;
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean checkPage(){
-        return driver.getTitle().equals(this.PAGE_TITTLE);
+        return driver.getTitle(10).equals(this.PAGE_TITTLE);
     }
 
     public void insertZipCode(String zip){
         this.zipField.sendKeys(zip);
     }
+
+    /**
+     *
+     * @return
+     */
     public MainPage clickSearchButton(){
         this.searchButton.click();
         return new MainPage(this.driver);

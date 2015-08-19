@@ -3,6 +3,7 @@ package testsuite;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import pageobjects.HomePage;
@@ -18,13 +19,16 @@ public class HomePageTest extends BaseTest{
     @Test(groups = {"Smoke"})
     @Parameters({"zip"})
     public void testSearch(String zip){
-        HomePage HomePage= new HomePage(this.driver);
-        if(HomePage.checkPage()){
-            HomePage.insertZipCode(zip);
-            MainPage MainPage=HomePage.clickSearchButton();
-            assertTrue(MainPage.checkPage());
-        }else{
-            assertFalse(false,"Error");
-        }
+        /*
+        No estaba implementando el pageFactory
+         */
+//        HomePage HomePage= new HomePage(this.driver);
+        HomePage homePage = PageFactory.initElements(this.driver.getDriver(),HomePage.class);
+        assertTrue(homePage.checkPage(),"HomePage was not Loaded");
+        homePage.insertZipCode(zip);
+        MainPage MainPage=homePage.clickSearchButton();
+        //Solo para probar el check title
+        assertTrue(MainPage.checkPage(),"MainPage was not Loaded");
+
     }
 }

@@ -15,7 +15,8 @@ import java.util.concurrent.TimeUnit;
  * Created by zao on 8/5/15.
  */
 public class SeleniumBase {
-    protected WebDriver driver =null;
+    private WebDriver webDriver =null;
+    protected BotStyle driver=null;
 
     @BeforeMethod(alwaysRun = true)
     @Parameters({"browser"})
@@ -23,23 +24,23 @@ public class SeleniumBase {
         switch (browser){
             case Browser.FIREFOX :
                 //Create instance
-                this.driver= new FirefoxDriver();
+                this.webDriver= new FirefoxDriver();
                 break;
             case Browser.CHROME :
-                this.driver= new ChromeDriver();
+                this.webDriver= new ChromeDriver();
                 break;
 
         }
-        this.driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        this.driver=new BotStyle(this.webDriver);
+        this.webDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
     @AfterMethod(alwaysRun = true)
     public void tearDown(){
-        if(this.driver != null) {
-            this.driver.close();
+        if(this.webDriver != null) {
+            this.webDriver.close();
         }
         // Quit() o Close()
         //Quit closes all windows
         //Close only closes the actual window for that test
-
     }
 }
