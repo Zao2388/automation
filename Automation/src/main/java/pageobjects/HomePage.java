@@ -17,30 +17,30 @@ public class HomePage {
 
     @FindBy(id="search-form-button")
     private WebElement searchButton;
-
     /**
-     *
+     * Constructor sets the driver
      * @param driver
      */
     public HomePage(BotStyle driver){
         this.driver=driver;
     }
-
     /**
-     *
-     * @return
+     * Check current page tittles to see if it matches the PAGE_TITTLE
+     * @return Bool true if matches
      */
     public boolean checkPage(){
         return driver.getTitle(10).equals(this.PAGE_TITTLE);
     }
-
+    /**
+     * Inserts zip code to the search field
+     * @param zip
+     */
     public void insertZipCode(String zip){
         this.zipField.sendKeys(zip);
     }
-
     /**
-     *
-     * @return
+     * Clicks search button
+     * @return MainPage PageObject
      */
     public MainPage clickSearchButton(){
         this.searchButton.click();

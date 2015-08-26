@@ -12,6 +12,9 @@ public class BaseTest extends SeleniumBase {
 
     @BeforeMethod(alwaysRun = true)
     @Parameters({"url"})
+    /**
+     * Gets the URL from the XML file and opens it using the driver.
+     */
     public void openBrowser(String url){
         /**
          * GoogleSearchPage page = PageFactory.initElements(driver, GoogleSearchPage.class);

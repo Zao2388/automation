@@ -13,13 +13,24 @@ import java.util.concurrent.TimeUnit;
  */
 public class BotStyle {
     private WebDriver driver=null;
-
+    /**
+     * Constructor of Bot Style Class
+     * @param driver Sets the Driver
+     */
     public BotStyle(WebDriver driver){
         this.driver=driver;
     }
+    /**
+     * Returns the driver
+     * @return WebDriver
+     */
     public WebDriver getDriver() {
         return driver;
     }
+    /**
+     * Gets the desired URl using the driver's get function
+     * @param url
+     */
     public void get(String url){
         this.driver.get(url);
     }
@@ -52,7 +63,12 @@ public class BotStyle {
         }
         return isElementPresent;
     }
-
+    /**
+     * Waits until the element is present and then returns it.
+     * @param locator Element locator
+     * @param timeToWait Number of seconds to wait
+     * @return Found element
+     */
     public WebElement findElement(By locator,int timeToWait){
         WebElement element=null;
         if(waitForElementPresent(locator,timeToWait)){
@@ -60,13 +76,22 @@ public class BotStyle {
         }
         return element;
     }
-
+    /**
+     * Clicks an element in the current page using the locator
+     * @param locator Element locator
+     * @param timeToWait Number of seconds to wait
+     */
     public void click(By locator,int timeToWait){
         WebElement element=findElement(locator,timeToWait);
         if(element!=null){
             element.click();
         }
     }
+    /**
+     * Retrieves the page title and returns it.
+     * @param timeToWait Number of Seconds to wait
+     * @return String title
+     */
     public String getTitle(int timeToWait){
         int i=0;
         String pageTitle="";

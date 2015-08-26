@@ -17,18 +17,30 @@ public class MainPage {
     private WebElement count;
 
     /**
-     *
-     * @param driver
+     * Constructor of Page
+     * @param driver WebDriver Driver
      */
     public MainPage(BotStyle driver){
         this.driver=driver;
     }
+    /**
+     * Gets current page title, will try to wait 10 seconds to see if its pressent
+     * @return Bool true if equals Static PAGE_TITTLE
+     */
     public boolean checkPage(){
         return driver.getTitle(10).equals(this.PAGE_TITTLE);
     }
+    /**
+     * Gets text for Programs Count for specific zip code
+     * @return String Count text
+     */
     public String getCount(){
         return this.count.getText();
     }
+    /**
+     * Gets text for Postal
+     * @return String Postal text
+     */
     public String getPostal(){
         return this.postal.getText();
     }

@@ -15,7 +15,12 @@ import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertTrue;
 
 public class HomePageTest extends BaseTest{
-
+    /**
+     * Looks for the page, gets its tittle and checks if is correct
+     * Then inserts a zipcode in the field and submits it
+     * Checks if the page loaded correctly after clicking the search button
+     * @param zip String zip code (76201)
+     */
     @Test(groups = {"Smoke"})
     @Parameters({"zip"})
     public void testSearch(String zip){
