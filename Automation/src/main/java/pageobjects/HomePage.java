@@ -8,7 +8,7 @@ import org.openqa.selenium.support.FindBy;
 /**
  * Created by zao on 8/5/15.
  */
-public class HomePage {
+public class HomePage extends BasePage {
     private final String PAGE_TITTLE="Aunt Bertha | Connecting People and Programs";
     private BotStyle driver =null;
 
@@ -21,8 +21,8 @@ public class HomePage {
      * Constructor sets the driver
      * @param driver
      */
-    public HomePage(BotStyle driver){
-        this.driver=driver;
+    public HomePage(WebDriver driver){
+        super(driver);
     }
     /**
      * Check current page tittles to see if it matches the PAGE_TITTLE
@@ -45,5 +45,9 @@ public class HomePage {
     public MainPage clickSearchButton(){
         this.searchButton.click();
         return new MainPage(this.driver);
+    }
+    public boolean getPageTitle(){
+        String pageTitle =  this.driver.getTitle();;
+        return pageTitle.equals(PAGE_TITTLE);
     }
 }

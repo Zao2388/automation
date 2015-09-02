@@ -28,7 +28,7 @@ public class HomePageTest extends BaseTest{
         No estaba implementando el pageFactory
          */
 //        HomePage HomePage= new HomePage(this.driver);
-        HomePage homePage = PageFactory.initElements(this.driver.getDriver(),HomePage.class);
+        HomePage homePage = PageFactory.initElements(getWebDriver(),HomePage.class);
         assertTrue(homePage.checkPage(),"HomePage was not Loaded");
         homePage.insertZipCode(zip);
         MainPage MainPage=homePage.clickSearchButton();

@@ -37,6 +37,9 @@ public class SeleniumBase {
         this.driver=new BotStyle(this.webDriver);
         this.webDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
+    protected WebDriver getWebDriver(){
+        return this.driver;
+    }
     /**
      * Closes the driver
      */

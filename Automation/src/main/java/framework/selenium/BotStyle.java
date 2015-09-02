@@ -6,12 +6,14 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
 
+import java.util.List;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 /**
  * Created by zao on 8/19/15.
  */
-public class BotStyle {
+public class BotStyle implements WebDriver {
     private WebDriver driver=null;
     /**
      * Constructor of Bot Style Class
@@ -43,7 +45,7 @@ public class BotStyle {
      * @return true = if the element was displayed in the page.
      *         false = the element was not displayed in the page.
      */
-    public boolean waitForElementPresent(By byElement, int noOfSecToWait) {
+    public boolean waitForElementPresent(final By byElement, int noOfSecToWait) {
         boolean isElementPresent = true;
 
         try {
@@ -101,4 +103,53 @@ public class BotStyle {
         }
         return pageTitle;
     }
+    @Override
+    public void close(){
+        this.driver.close();
+    }
+    @Override
+    public String getTitle(){
+        return this.driver.getTitle();
+    }
+    @Override
+    public String  getPageSource(){
+        return null;
+    }
+    @Override
+    public String getWindowHandle(){
+        return null;
+    }
+    @Override
+    public Options manage() {
+        return null;
+    }
+    @Override
+    public String getCurrentUrl() {
+        return null;
+    }
+    @Override
+    public void quit(){
+        this.driver.close();
+    }
+    @Override
+    public TargetLocator switchTo() {
+        return null;
+    }
+    @Override
+    public Navigation navigate() {
+        return null;
+    }
+    @Override
+    public WebElement findElement(By by) {
+        return this.driver.findElement(by);
+    }
+    @Override
+    public Set<String> getWindowHandles() {
+        return null;
+    }
+    @Override
+    public List<WebElement> findElements(By by) {
+        return null;
+    }
+
 }
