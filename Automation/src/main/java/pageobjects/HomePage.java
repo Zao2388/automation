@@ -10,7 +10,6 @@ import org.openqa.selenium.support.FindBy;
  */
 public class HomePage extends BasePage {
     private final String PAGE_TITTLE="Aunt Bertha | Connecting People and Programs";
-    private BotStyle driver =null;
 
     @FindBy(id="Zipcode")
     private WebElement zipField;
@@ -47,7 +46,7 @@ public class HomePage extends BasePage {
         return new MainPage(this.driver);
     }
     public boolean getPageTitle(){
-        String pageTitle =  this.driver.getTitle();;
+        String pageTitle =  this.driver.getTitle();
         return pageTitle.equals(PAGE_TITTLE);
     }
 }

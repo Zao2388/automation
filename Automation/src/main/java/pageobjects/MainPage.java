@@ -8,9 +8,8 @@ import org.openqa.selenium.support.FindBy;
 /**
  * Created by zao on 8/18/15.
  */
-public class MainPage {
+public class MainPage extends BasePage {
     private final String PAGE_TITTLE="Aunt Bertha | Program Directory";
-    private BotStyle driver =null;
     @FindBy(className="search-result-postal")
     private WebElement postal;
     @FindBy(className="search-result-count")
@@ -20,8 +19,8 @@ public class MainPage {
      * Constructor of Page
      * @param driver WebDriver Driver
      */
-    public MainPage(BotStyle driver){
-        this.driver=driver;
+    public MainPage(WebDriver driver){
+        super(driver);
     }
     /**
      * Gets current page title, will try to wait 10 seconds to see if its pressent
@@ -45,5 +44,8 @@ public class MainPage {
         return this.postal.getText();
     }
 
-
+    public boolean getPageTitle(){
+        String pageTitle =  this.driver.getTitle();
+        return pageTitle.equals(PAGE_TITTLE);
+    }
 }
