@@ -96,7 +96,7 @@ public class BotStyle implements WebDriver {
      */
     public String getTitle(int timeToWait){
         int i=0;
-        String pageTitle="";
+        String pageTitle=null;
         while(i++ <= timeToWait && pageTitle == null){
             pageTitle=driver.getTitle();
             Utilities.waitTime(1);

@@ -27,6 +27,7 @@ public class SeleniumBase {
         switch (browser){
             case Browser.FIREFOX :
                 //Create instance
+                //Capabilities implementation
                 this.webDriver= new FirefoxDriver();
                 break;
             case Browser.CHROME :
