@@ -9,8 +9,8 @@
   <url>http://maven.apache.org</url>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <testng.version>6.3</testng.version>
-        <selenium.version>2.47.0</selenium.version>
+        <testng.version>6.9.4</testng.version>
+        <selenium.version>2.47.1</selenium.version>
         <surefire.version>2.11</surefire.version>
         <maven.compiler.version>2.3.2</maven.compiler.version>
         <suiteXmlFile>testng.xml</suiteXmlFile>
