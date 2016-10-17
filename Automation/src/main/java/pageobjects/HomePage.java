@@ -5,17 +5,55 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-/**
- * Created by zao on 8/5/15.
- */
 public class HomePage extends BasePage {
-    private final String PAGE_TITTLE="Aunt Bertha | Connecting People and Programs";
+    private final String PAGE_TITTLE="OGame Homepage";
 
-    @FindBy(id="Zipcode")
-    private WebElement zipField;
+    @FindBy(linkText = "Log out")
+    private WebElement logout;
+    //Menu
+    @FindBy(linkText = "Overview")
+    private WebElement overview;
 
-    @FindBy(id="search-form-button")
-    private WebElement searchButton;
+    @FindBy(linkText = "Resources")
+    private WebElement resources;
+
+    @FindBy(linkText = "Facilities")
+    private WebElement facilities;
+
+    @FindBy(linkText = "Merchant")
+    private WebElement merchant;
+
+    @FindBy(linkText = "Research")
+    private WebElement research;
+
+    @FindBy(linkText = "Shipyard")
+    private WebElement shipyard;
+
+    @FindBy(linkText = "Defense")
+    private WebElement defense;
+
+    @FindBy(linkText = "Fleet")
+    private WebElement fleet;
+
+    @FindBy(linkText = "Galaxy")
+    private WebElement galaxy;
+
+    @FindBy(linkText = "Alliance")
+    private WebElement alliance;
+
+    //Resources
+     @FindBy(id = "resources_metal")
+    private WebElement metal;
+
+    @FindBy(id = "resources_crystal")
+    private WebElement crystal;
+
+    @FindBy(id = "resources_deuterium")
+    private WebElement deut;
+
+    @FindBy(id = "resources_energy")
+    private  WebElement energy;
+
     /**
      * Constructor sets the driver
      * @param driver
@@ -30,23 +68,35 @@ public class HomePage extends BasePage {
     public boolean checkPage(){
         return driver.getTitle(10).equals(this.PAGE_TITTLE);
     }
-    /**
-     * Inserts zip code to the search field
-     * @param zip
-     */
-    public void insertZipCode(String zip){
-        this.zipField.sendKeys(zip);
+
+    public void logout(){
+        this.logout.click();
     }
-    /**
-     * Clicks search button
-     * @return MainPage PageObject
-     */
-    public MainPage clickSearchButton(){
-        this.searchButton.click();
-        return new MainPage(this.driver);
-    }
+
     public boolean getPageTitle(){
         String pageTitle =  this.driver.getTitle();
         return pageTitle.equals(PAGE_TITTLE);
+    }
+
+    public void clickMenuItem(String option){
+        switch (option){
+            case "Resources":{
+                this.resources.click();
+                break;
+            }
+        }
+    }
+
+    public String getMetal(){
+        return this.metal.getText();
+    }
+    public String getCrystal(){
+        return this.crystal.getText();
+    }
+    public String getDeut(){
+        return this.deut.getText();
+    }
+    public String getEnergy(){
+        return this.energy.getText();
     }
 }

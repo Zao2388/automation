@@ -4,10 +4,10 @@
 
     <test name="Main Tests" verbose="2">
         <parameter name="browser" value="Firefox"/>
-        <parameter name="url" value="https://searchbertha-qa1.appspot.com/"/>
-        <parameter name="zip" value="76201"/>
-
-
+        <parameter name="url" value=""/>
+        <parameter name="uni" value=""/>
+        <parameter name="user" value=""/>
+        <parameter name="pass" value=""/>
         <groups>
             <run>
                 <include name="Smoke"/>
